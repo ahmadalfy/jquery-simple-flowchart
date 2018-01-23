@@ -1,7 +1,7 @@
 /*!
  * jQuery simpleflowchart
  * Author: @ahmadalfy
- * Version: 1.1.0
+ * Version: 1.2.0
  * Licensed under the MIT license
  */
 

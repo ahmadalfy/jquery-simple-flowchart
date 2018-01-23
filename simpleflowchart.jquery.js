@@ -1,7 +1,7 @@
 /*!
  * jQuery simpleflowchart
  * Author: @ahmadalfy
- * Version: 1.0.1
+ * Version: 1.1.0
  * Licensed under the MIT license
  */
 
@@ -15,7 +15,9 @@
         informativeClass: 'node__informative',
         nodeClass: 'node__question',
         finishClass: 'node__finish',
-        startingPoint: 1
+        startingPoint: 1,
+        animated: true,
+        easingSpeed: 300
       };
 
   function Plugin( element, options ) {
@@ -37,6 +39,8 @@
 
     init: function() {
       this.createWrapper();
+      // if animation is set to false, set easingspeed to 0 instead
+      this.options.easingSpeed = this.options.animated ? this.options.easingSpeed : 0;
       this.createNode({ link: this.options.startingPoint });
     },
 
@@ -50,8 +54,19 @@
 
     triggerCreateNode(ev) {
       var data = ev.data;
-      data.$currentNode.closest('.node-wrapper').nextAll().remove();
-      this.createNode(data);
+      var that = this;
+      var $laterNodes = data.$currentNode.closest('.node-wrapper').nextAll();
+      if($laterNodes.length > 0) {
+        // Wrapping all next nodes in a single div then animating and removing
+        // that div to avoid having multiple callbacks if we are animating and
+        // removing multiple elements.
+        $laterNodes.wrapAll('<div />').parent().fadeOut(this.options.easingSpeed, function() {
+          $(this).remove();
+          that.createNode(data);
+        });
+      } else {
+        this.createNode(data);
+      }
     },
 
     createNode: function(data) {
@@ -61,7 +76,7 @@
       if(node === undefined) {
         throw new Error('Error, couldn\'t find a node with the id: ' + data.link);
       }
-      var $node = $('<div class="node-wrapper" />');
+      var $node = $('<div class="node-wrapper" style="display: none" />');
       this.addNodeClasses(node, $node);
       var $nodeText = this.createNodeText(node);
       $node.append($nodeText);
@@ -69,7 +84,7 @@
         var $answers = this.createAnswers(node.answers);
         $node.append($answers);
       }
-      this.$wrapper.append($node);
+      $node.appendTo(this.$wrapper).fadeIn(this.options.easingSpeed);
       if(node.informative && node.link !== undefined) {
         this.createNode({ link: node.link });
       }

@@ -1,0 +1,26 @@
+{
+  "name": "simpleflowchart.jquery",
+  "version": "1.2.0",
+  "description": "Create simple interactive flowcharts using jQuery",
+  "main": "simpleflowchart.jquery.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadalfy/jquery-simple-flowchart.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "flowchart"
+  ],
+  "author": "Ahmad Alfy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmadalfy/jquery-simple-flowchart/issues"
+  },
+  "homepage": "https://github.com/ahmadalfy/jquery-simple-flowchart#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

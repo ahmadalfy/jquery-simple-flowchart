@@ -1,0 +1,82 @@
+.chart-wrapper {
+  text-align: center;
+  position: relative;
+}
+
+.node {
+  display: inline-block;
+  font-size: 1.4em;
+  padding: 1em 2em;
+  line-height: 1.2;
+  border-radius: 5px;
+}
+
+.node__start > .node {
+  background: #17a5df;
+  color: #fff;
+}
+
+.node__informative > .node {
+  color: #fff;
+  background: #a1ce5a;
+}
+
+.node__finish,
+.node__informative,
+.node__question {
+  margin-top: 2.5em;
+}
+
+.node__question > .node {
+  background: #a0dbf2;
+  color: #fff;
+}
+
+.node__answers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 3em;
+}
+
+.node__answers::before,
+.node__answers::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.node__answer {
+  float: left;
+  position: relative;
+  padding: 0 1em;
+}
+
+.node__answer::before {
+  bottom: 125%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-top-color: #d5ccbe;
+  border-width: 0.5em;
+  margin-left: -0.5em;
+}
+
+.node__action {
+  padding: 0;
+  display: inline-block;
+  max-width: 10em;
+  width: 100%;
+  height: 3em;
+  line-height: 3em;
+  font-size: 0.8em;
+  border: 0;
+  background: #b7c9d0;
+  color: #fff;
+  border-radius: 5px;
+}

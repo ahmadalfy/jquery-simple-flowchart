@@ -17,6 +17,8 @@
         finishClass: 'node__finish',
         startingPoint: 1,
         animated: true,
+        scrollToNewNode: true,
+        scrollSpeed: 800,
         easingSpeed: 300
       };
 
@@ -39,7 +41,7 @@
 
     init: function() {
       this.createWrapper();
-      // if animation is set to false, set easingspeed to 0 instead
+      // if animation is set to false, set easingSpeed to 0 instead
       this.options.easingSpeed = this.options.animated ? this.options.easingSpeed : 0;
       this.createNode({ link: this.options.startingPoint });
     },
@@ -69,6 +71,12 @@
       }
     },
 
+    scrollToNode: function($node) {
+      $('html, body').animate({
+        scrollTop: $node.offset().top
+      }, this.options.scrollSpeed);
+    },
+
     createNode: function(data) {
       var node = this.options.data.find(function(node) {
         return node.id === data.link;
@@ -87,6 +95,9 @@
       $node.appendTo(this.$wrapper).fadeIn(this.options.easingSpeed);
       if(node.informative && node.link !== undefined) {
         this.createNode({ link: node.link });
+      }
+      if(!node.informative && this.options.scrollToNewNode) {
+        this.scrollToNode($node);
       }
     },
 

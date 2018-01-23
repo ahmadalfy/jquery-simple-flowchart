@@ -1,7 +1,7 @@
 /*!
  * jQuery simpleflowchart
  * Author: @ahmadalfy
- * Version: 1.0.0
+ * Version: 1.0.1
  * Licensed under the MIT license
  */
 
@@ -42,7 +42,10 @@
 
     createWrapper: function() {
       this.$wrapper = $('<div class="' + this.options.wrapperClass + '" />');
-      $(this.element).append(this.$wrapper);
+      // It's a good practice to include an alternative version
+      // for people with JavaScript disabled like an alternative
+      // static image or a link to the chart in a different format
+      $(this.element).html(this.$wrapper);
     },
 
     triggerCreateNode(ev) {

@@ -131,6 +131,11 @@ Property | Type | Required | Description
   ]
 ```
 
+### Full Example
+![Full Example](flowChartExample.png "Full Example")
+*see index.html for full example code*
+
+
 ## Events
 
 Events are callbacks that execute in response to different actions like click a decision, before or after drawing a node ... etc. To be added in the upcoming versions

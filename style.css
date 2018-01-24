@@ -1,0 +1,7 @@
+.decision-success button{
+  color: white;
+}
+
+.decision-error button{
+  color: darkslategrey;
+}

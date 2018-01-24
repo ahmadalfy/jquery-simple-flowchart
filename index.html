@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+        <link rel="stylesheet" href="simpleflowchart.jquery.css">
+        <title>Flow Chart Demo</title>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Flow Chart Demo</h1>
+        <div class="chart"></div>
+        <!-- <p class="child" id='beta'>child</p> -->
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+        <script src="simpleflowchart.jquery.js"></script>
+        <script>
+            var myData = [{
+                "id": 1,
+                "text": "Are you interested in the new position you are applying to?",
+                "start": true,
+                "answers": [
+                    {
+                    "text": "Yes",
+                    "link": 2,
+                    "class": "decision-success"
+                    }, {
+                    "text": "No",
+                    "link": 3,
+                    "class": "decision-error"
+                    }
+                ]
+                }, {
+                "id": 2,
+                "text": "Great, moving to next question..",
+                "informative": true,
+                "link": 4
+                }, {
+                "id": 3,
+                "text": "OK, great to see you, have a nice day!",
+                "finish": true,
+                }, {
+                "id": 4,
+                "text": "Do you think your skills are a good fit for the new role?",
+                "answers": [
+                    {
+                        "text": "Yes",
+                        "link": 5,
+                        "class": "decision-success"
+                    }, {
+                        "text": "No",
+                        "link": 6,
+                        "class": "decision-error"
+                    }
+                ]}, {
+                "id": 5,
+                "text": "Great, are you willing to start right away?",
+                "answers": [
+                    {
+                        "text": "Yes",
+                        "link": 7,
+                        "class": "decision-success"
+                    }, {
+                        "text": "No",
+                        "link": 8,
+                        "class": "decision-error"
+                    }
+                ]}, {
+                "id": 6,
+                "text": "That's ok, life is a continuous learning journey..",
+                "informative": true,
+                "link": 9,
+                }, {
+                "id": 7,
+                "text": "Welcome onboard, we are thrilled to have you!",
+                "finish": true,
+                }, {
+                "id": 8,
+                "text": "Thank you for your time, let us know when you are ready!",
+                "informative": true,
+                "finish": true,
+                }, {
+                "id": 9,
+                "text": "Are you willing to learn the skills required for the new role?",
+                "answers": [
+                    {
+                        "text": "Yes",
+                        "link": 7,
+                        "class": "decision-success"
+                    }, {
+                        "text": "No",
+                        "link": 10,
+                        "class": "decision-error"
+                    }
+                ]}, {
+                "id": 10,
+                "text": "We are sorry to hear that, such a waste of a good bunch of neurons!",
+                "finish": true,
+                }
+            ]
+            $('.chart').simpleflowchart({data:myData});
+        </script>
+    </body>
+</html>

@@ -80,11 +80,3 @@
   color: #fff;
   border-radius: 5px;
 }
-
-.decision-success button{
-  color: white;
-}
-
-.decision-error button{
-  color: darkslategrey;
-}

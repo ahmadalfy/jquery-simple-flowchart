@@ -133,6 +133,7 @@ Property | Type | Required | Description
 
 ### Full Example
 ![Full Example](flowChartExample.png "Full Example")
+
 *see index.html for full example code*
 
 
